@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>gitflow</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Gitflow sample</name>
+	<description><![CDATA[Gitflow sample]]></description>
+
+	<url>${roche-pom-base.siteUrl}/${project.artifactId}/</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/janickia/example-git-flow.git</connection>
+		
+		<developerConnection>scm:git:git@github.com:janickia/example-git-flow.git</developerConnection>
+		<url>https://github.com/janickia/example-git-flow/</url>
+	</scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <scope>test</scope>
+            <version>${testng.version}</version>
+        </dependency>
+    </dependencies>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- http://jira.codehaus.org/browse/MCOMPILER-187, remove it when 3.1 
+			will be released -->
+		<roche-pom-base.compilerVersion>2.5.1</roche-pom-base.compilerVersion>
+
+        <testng.version>6.8</testng.version>
+    </properties>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-jgitflow-plugin</artifactId>
+				<version>1.0-alpha21.1</version>
+				<configuration>
+					<!-- performs only install (not deploy) during release-finish -->
+					<noDeploy>true</noDeploy>
+					<pushReleases>true</pushReleases>
+					<pushHotfixes>true</pushHotfixes>
+					<!-- jgitflow:feature-start Starts a feature branch -->
+					<!-- jgitflow:feature-finish Finishes a feature branch -->
+					<!-- jgitflow:release-start Starts a release -->
+					<!-- jgitflow:release-finish Finishes a release -->
+					<!-- jgitflow:hotfix-start Starts a hotfix -->
+					<!-- jgitflow:hotfix-finish Finishes a hotfix -->
+					<!-- jgitflow:build-number Updates the pom versions in the current branch 
+						by adding a build number label -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
