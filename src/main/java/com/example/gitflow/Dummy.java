@@ -5,6 +5,6 @@ package com.example.gitflow;
  */
 public class Dummy {
     public static void main(String[] args) {
-        System.out.println("It works!");
+        System.out.println("It works! Even for 1.0!");
     }
 }
